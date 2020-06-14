@@ -1,0 +1,114 @@
+# 初始化版本库
+git init
+
+# 把文件添加到仓库
+git add learning_git.txt
+
+# 把文件提交到仓库
+git commit -m "init"
+
+# 查看仓库状态：
+git status
+
+# 查看具体文件差异（commit后就看不到）
+git diff learning_git.txt
+
+# 再次修改提交
+git add learning_git.txt
+git commit -m "second commit"
+
+# 撤销修改(add之前)
+git checkout -- learning_git.txt
+
+# 撤销修改(add之后)
+git reset HEAD learning_git.txt
+
+# 撤销修改（commit后)==回退版本
+git reset --hard commitID
+
+# 查看记录
+git log
+
+# 查看历史记录
+git reflog
+
+
+# 初始化远程仓库
+git remote add origin git@github.com:peinbill/git_learning.git
+
+# 第一次提交代码
+git push -u origin master
+
+# 之后每次提交代码
+git push origin master
+
+# 从远程仓库克隆
+git clone git@github.com:peinbill/git_learning.git
+
+# 查看分支
+git branch
+
+# 创建分之合
+git branch dev
+
+# 切换分支
+git checkout dev
+
+# 创建并切换分支
+git checkout -b dev
+git switch -c dev
+
+# 合并分支
+git merge dev
+
+# 非ff 合并分支
+git merage --no-ff -m "非ff合并分支，删除分支可保留以前分支信息" dev
+
+# 查看分支合并情况
+git log --graph --pretty=oneline --abbrev-commit
+
+# 删除分支
+git branch -d dev
+
+# 临时存储
+git stash
+
+# 查看临时存储
+git stash list
+
+# 恢复临时存储（恢复并删除）
+git stash pop
+
+# 恢复临时存储（恢复不删除）
+git stash apply
+
+# 删除临时存储
+git stash drop
+
+# 复制特定的提交到当前分支
+git cherry-pick <commitID>
+
+# 删除一个还没合并的分支
+git branch -D dev
+
+# 查看远程信息
+git remote -v
+
+# 新建建立本地分支与远程连接：
+git checkout -b dev origin/dev
+
+# 关联远程连接
+git branch --set-upstream dev origin/dev
+
+# 远程同步
+git pull
+
+# 查看标签
+git tag
+
+# 查看标签信息
+git show <tag_name>
+
+# 打标签
+git tag <tag_name> <commitID>
+git tag -a <tag_name> -m "message" <commitID>
